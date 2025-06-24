@@ -20,7 +20,7 @@ public class UserService {
 
     public UserResponse getUser(long userId) {
         User user = userRepository.findById(userId).orElseThrow(() -> new InvalidRequestException("User not found"));
-        return new UserResponse(user.getId(), user.getEmail(), user.getNickName());
+        return new UserResponse(user.getId(), user.getEmail(), user.getNickName()); //닉네임 추가 반환
     }
 
     @Transactional

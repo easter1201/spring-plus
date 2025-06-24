@@ -44,7 +44,7 @@ public class TodoService {
                 savedTodo.getTitle(),
                 savedTodo.getContents(),
                 weather,
-                new UserResponse(user.getId(), user.getEmail(), user.getNickName())
+                new UserResponse(user.getId(), user.getEmail(), user.getNickName()) //닉네임 추가 반환
         );
     }
 
@@ -58,7 +58,7 @@ public class TodoService {
                 todo.getTitle(),
                 todo.getContents(),
                 todo.getWeather(),
-                new UserResponse(todo.getUser().getId(), todo.getUser().getEmail(), todo.getUser().getNickName()),
+                new UserResponse(todo.getUser().getId(), todo.getUser().getEmail(), todo.getUser().getNickName()), //닉네임 추가 반환
                 todo.getCreatedAt(),
                 todo.getModifiedAt()
         ));
@@ -75,7 +75,7 @@ public class TodoService {
                 todo.getTitle(),
                 todo.getContents(),
                 todo.getWeather(),
-                new UserResponse(user.getId(), user.getEmail(), user.getNickName()),
+                new UserResponse(user.getId(), user.getEmail(), user.getNickName()), //닉네임 추가 반환
                 todo.getCreatedAt(),
                 todo.getModifiedAt()
         );

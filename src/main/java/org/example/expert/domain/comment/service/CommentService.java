@@ -43,7 +43,7 @@ public class CommentService {
         return new CommentSaveResponse(
                 savedComment.getId(),
                 savedComment.getContents(),
-                new UserResponse(user.getId(), user.getEmail(), user.getNickName())
+                new UserResponse(user.getId(), user.getEmail(), user.getNickName()) //닉네임 추가 반환
         );
     }
 
@@ -56,7 +56,7 @@ public class CommentService {
             CommentResponse dto = new CommentResponse(
                     comment.getId(),
                     comment.getContents(),
-                    new UserResponse(user.getId(), user.getEmail(), user.getNickName())
+                    new UserResponse(user.getId(), user.getEmail(), user.getNickName()) //닉네임 추가 반환
             );
             dtoList.add(dto);
         }

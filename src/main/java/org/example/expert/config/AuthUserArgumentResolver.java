@@ -40,8 +40,8 @@ public class AuthUserArgumentResolver implements HandlerMethodArgumentResolver {
         Long userId = (Long) request.getAttribute("userId");
         String email = (String) request.getAttribute("email");
         UserRole userRole = UserRole.of((String) request.getAttribute("userRole"));
-        String nickName = (String) request.getAttribute("nickName");
+        String nickName = (String) request.getAttribute("nickName"); //닉네임 추가
 
-        return new AuthUser(userId, email, userRole, nickName);
+        return new AuthUser(userId, email, userRole, nickName); //닉네임 추가 반환
     }
 }

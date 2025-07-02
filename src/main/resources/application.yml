@@ -1,0 +1,78 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/plusdb
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    messages:
+      encoding: UTF-8
+      basename: validation
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
+
+cloud:
+  aws:
+    s3:
+      bucket: kite1201bucket
+    credentials:
+      access-key: dummy
+      secret-key: dummy
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+
+server:
+  port: 8080
+  address: 0.0.0.0
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs # springdoc.api-docs.path
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html # springdoc.swagger-ui.path
+
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+        security.web: DEBUG
+        web:
+          servlet: TRACE
+          servlet.mvc.method.annotation.RequestMappingHandlerMapping: TRACE
+          filter:
+            OncePerRequestFilter: TRACE
+      beans:
+        factory:
+          support:
+            DefaultListableBeanFactory: TRACE
+          annotation:
+            AutowiredAnnotationBeanPostProcessor: TRACE
+          context:
+            support:
+              PostProcessorRegistrationDelegate:
+                BeanPostProcessorChecker: TRACE
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+jwt:
+  secret:
+    key: ZW5maWgxMzI5aHM5ZHZhbHdtRUppYjMxYWdlYTMxMzF0Z2ZzYWhzajZqd2F3NGdyODBna2pzbm9lZm5xbGRj

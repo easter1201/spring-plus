@@ -2,7 +2,6 @@ package org.example.expert.domain.user;
 
 import org.example.expert.config.JwtAuthenticationFilter;
 import org.example.expert.domain.user.entity.User;
-import org.example.expert.domain.user.enums.UserRole;
 import org.example.expert.domain.user.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ public class UserSearchTest {
         String targetNickName = "target";
         long start = System.currentTimeMillis();
         //when
-        List<User> found = userRepository.findByNickName(targetNickName);
+        List<User> found = userRepository.findIdAndEmailAndNickNameByNickName(targetNickName);
         long end = System.currentTimeMillis();
         //then
         System.out.println("소요시간(ms): " + (end - start));

@@ -53,7 +53,7 @@ public class UserService {
     }
 
     public List<UserResponse> findUsersByNickName(String nickName){
-        List<User> users = userRepository.findByNickName(nickName);
+        List<User> users = userRepository.findIdAndEmailAndNickNameByNickName(nickName);
         return users.stream()
                 .map(user -> new UserResponse(user.getId(), user.getEmail(), user.getNickName()))
                 .collect(Collectors.toList());

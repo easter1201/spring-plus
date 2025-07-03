@@ -9,6 +9,8 @@ import org.example.expert.domain.user.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class UserController {
@@ -23,5 +25,11 @@ public class UserController {
     @PutMapping("/users")
     public void changePassword(@Auth AuthUser authUser, @RequestBody UserChangePasswordRequest userChangePasswordRequest) {
         userService.changePassword(authUser.getId(), userChangePasswordRequest);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<UserResponse>> searchUsersByNickName(@RequestParam String nickName){
+        List<UserResponse> users = userService.findUsersByNickName(nickName);
+        return ResponseEntity.ok(users);
     }
 }
